@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Picker Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="slot-machine">
+        <div class="machine-frame">
+            <div class="reels-container">
+                <div class="reel" id="reel1">
+                    <div class="reel-slot" data-number="3">3</div>
+                    <div class="reel-slot" data-number="0">0</div>
+                    <div class="reel-slot" data-number="1">1</div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="reel-slot" data-number="5">5</div>
+                    <div class="reel-slot" data-number="6">6</div>
+                    <div class="reel-slot" data-number="4">4</div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="reel-slot" data-number="8">8</div>
+                    <div class="reel-slot" data-number="3">3</div>
+                    <div class="reel-slot" data-number="0">0</div>
+                </div>
+            </div>
+            
+            <div class="control-panel">
+                <button class="spin-button" id="spinButton">SPIN</button>
+                <div class="max-number-container">
+                    <label for="maxNumber" class="max-label">Max Number:</label>
+                    <input type="number" id="maxNumber" class="max-input" value="300" min="1" max="999">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
