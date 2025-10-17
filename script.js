@@ -9,6 +9,7 @@ class NumberPickerSlotMachine {
         ];
         this.spinButton = document.getElementById('spinButton');
         this.maxNumberInput = document.getElementById('maxNumber');
+        this.spinSound = document.getElementById('spinSound');
         this.isSpinning = false;
         this.spinDuration = 3000; // 3 seconds total
         this.spinSpeed = 100; // milliseconds between reel updates
@@ -20,7 +21,10 @@ class NumberPickerSlotMachine {
 
 
     initializeEventListeners() {
-        this.spinButton.addEventListener('click', () => this.spin());
+        this.spinButton.addEventListener('click', () => {
+            this.playSpinClickSound();
+            this.spin();
+        });
         this.maxNumberInput.addEventListener('change', () => this.validateMaxNumber());
         
         // Prevent form submission on Enter key
@@ -155,6 +159,20 @@ class NumberPickerSlotMachine {
                 slot.classList.remove('highlighted');
             }
         });
+    }
+
+    playSpinClickSound() {
+        const audioElement = this.spinSound || document.getElementById('spinSound');
+        if (!audioElement) {
+            return;
+        }
+        audioElement.currentTime = 0;
+        const playPromise = audioElement.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+            playPromise.catch(() => {
+                // Ignore playback errors (e.g., browser policies)
+            });
+        }
     }
 
 
